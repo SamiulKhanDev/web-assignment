@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Nav from "./Pages/Nav";
+import Home from "./Pages/Home";
+import Product from "./Pages/Product";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useStateValue } from "./State/StateProvider";
+import useFetchAndLoading from "./Hooks/useFetchAndLoading";
+import { useEffect } from "react";
+import LoadingAnimation from "./Components/LoadingAnimation";
+import { logDOM } from "@testing-library/react";
+import BottomBanner from "./Components/BottomBanner";
 
 function App() {
+  const [loading] = useFetchAndLoading();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="h-screen w-screen">
+      <BrowserRouter>
+        <Nav />
+        <Routes>
+          <Route path="/" element={loading ? <LoadingAnimation /> : <Home />} />
+          <Route path="/:category" element={<Product />} />
+          <Route path="/:category/:identifyer" element={<Product />} />
+        </Routes>
+        <BottomBanner />
+      </BrowserRouter>
+
+      {/* <Product category={"data"} /> */}
     </div>
   );
 }
