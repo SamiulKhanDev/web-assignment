@@ -102,7 +102,7 @@ export const initialState = {
       "Employee Engagement",
       "Applicant Tracking",
     ],
-    operationalmanagement: {
+    operationsmanagement: {
       title: "Operations Management Software",
       desc: "Operations Management Software helps businsesses in the management of the day-to-day activities and processes that are involved in the production and delivery of goods and services. It includes field service management, contract management or inventory management software. It also involves the implementation of strategies and tactics to optimize production and service delivery, as well as the development of innovative solutions to solve production and management problems. Operations Management Tools are essential for businesses to ensure that operations are running smoothly and that all stakeholders are satisfied with the results.",
       sub: [
